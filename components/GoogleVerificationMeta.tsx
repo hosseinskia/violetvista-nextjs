@@ -7,7 +7,7 @@ export default function GoogleVerificationMeta() {
     <Head>
       <meta
         name="google-site-verification"
-        content="gHLPnEhgZSLI6vp3poO4F-B1KuYJKbtnDGKe50rWjuw"
+        content="jh4M3O9h4h6N0abGGjbzdi09_MbPktaRKi7lnvAa3s8"
       />
     </Head>
   );

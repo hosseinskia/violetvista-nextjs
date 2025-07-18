@@ -1,7 +1,13 @@
 {
-  "name": "next-test",
-  "version": "0.1.0",
-  "private": true,
+  "name": "violetvista",
+  "version": "1.0.0",
+  "author": "Amir Kia",
+  "description": "VioletVista is a web application built with Next.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/next-test.git"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
