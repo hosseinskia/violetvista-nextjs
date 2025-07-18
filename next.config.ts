@@ -1,7 +1,5 @@
-// next.config.ts
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: "export",
   basePath: "/violetvista-nextjs",
   assetPrefix: "/violetvista-nextjs/",
