@@ -25,13 +25,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-    <head>
-      <link rel="manifest" href="/manifest.json" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <link rel="apple-touch-icon" href="/favicon.ico" />
-      <link rel="icon" href="/favicon.ico" />
-    </head>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta
+          name="google-site-verification"
+          content="gHLPnEhgZSLI6vp3poO4F-B1KuYJKbtnDGKe50rWjuw"
+        />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body
         className={`${poppins.className} antialiased bg-violet-50 text-violet-900 h-full flex flex-col`}
       >
