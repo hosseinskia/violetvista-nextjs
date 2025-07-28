@@ -1,10 +1,18 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import DataTable from "@/components/dashboard/DataTable";
+import React, { JSX } from "react";
+import GenericTable from "@/components/dashboard/GenericTable";
 import Link from "next/link";
-import Spinner from "@/components/dashboard/Spinner";
 
-const products = [
+interface Product {
+  id: string;
+  name: string;
+  price: string;
+  stock: number;
+  category: string;
+  sku: string;
+}
+
+const products: Product[] = [
   {
     id: "456",
     name: "Smart Phone",
@@ -39,79 +47,43 @@ const products = [
   },
 ];
 
-const columns = [
-  { header: "Product ID", accessor: "id" },
-  { header: "Name", accessor: "name" },
-  { header: "Price", accessor: "price" },
-  { header: "Stock", accessor: "stock" },
-  { header: "Category", accessor: "category" },
-  { header: "SKU", accessor: "sku" },
-  {
-    header: "Actions",
-    accessor: "id",
-    render: (id: string) => (
-      <div className="flex gap-2">
-        <Link
-          href={`/dashboard/products/${id}`}
-          className="text-purple-600 hover:underline"
-        >
-          View
-        </Link>
-        <button className="text-blue-600 hover:underline">Edit</button>
-        <button className="text-red-600 hover:underline">Delete</button>
-      </div>
-    ),
-  },
-];
-
 export default function Products() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [search, setSearch] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("all");
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 700);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  const filteredProducts = products.filter(
-    (product) =>
-      (product.name.toLowerCase().includes(search.toLowerCase()) ||
-        product.sku.toLowerCase().includes(search.toLowerCase())) &&
-      (categoryFilter === "all" ||
-        product.category.toLowerCase() === categoryFilter)
-  );
-
   return (
-    <div>
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl sm:text-4xl font-bold text-purple-700">
-          Products
-        </h1>
-        <div className="flex gap-4">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-400"
-          />
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-400"
-          >
-            <option value="all">All Categories</option>
-            <option value="electronics">Electronics</option>
-            <option value="accessories">Accessories</option>
-          </select>
-        </div>
-      </div>
-      <DataTable data={filteredProducts} columns={columns} />
-    </div>
+    <GenericTable
+      title="Products"
+      data={products}
+      columns={[
+        { header: "Product ID", accessor: "id" },
+        { header: "Name", accessor: "name" },
+        { header: "Price", accessor: "price" },
+        { header: "Stock", accessor: "stock" },
+        { header: "Category", accessor: "category" },
+        { header: "SKU", accessor: "sku" },
+        {
+          header: "Actions",
+          accessor: "id",
+          render: ((value: string) => (
+            <div className="flex gap-2">
+              <Link
+                href={`/dashboard/products/${value}`}
+                className="text-purple-600 hover:underline"
+              >
+                View
+              </Link>
+              <button className="text-blue-600 hover:underline">Edit</button>
+              <button className="text-red-600 hover:underline">Delete</button>
+            </div>
+          )) as (value: string | number) => JSX.Element,
+        },
+      ]}
+      searchPlaceholder="Search products..."
+      filterKey="category"
+      filterOptions={[
+        { value: "all", label: "All Categories" },
+        { value: "electronics", label: "Electronics" },
+        { value: "accessories", label: "Accessories" },
+      ]}
+      searchKeys={["name", "sku"]}
+    />
   );
 }

@@ -1,10 +1,19 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import DataTable from "@/components/dashboard/DataTable";
+import DataTable, { Column } from "@/components/dashboard/DataTable";
 import Link from "next/link";
 import Spinner from "@/components/dashboard/Spinner";
 
-const users = [
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  status: string;
+  registered: string;
+}
+
+const users: User[] = [
   {
     id: "1",
     name: "John Doe",
@@ -39,7 +48,7 @@ const users = [
   },
 ];
 
-const columns = [
+const columns: Column<User>[] = [
   { header: "Name", accessor: "name" },
   { header: "Email", accessor: "email" },
   { header: "Role", accessor: "role" },
@@ -48,10 +57,10 @@ const columns = [
   {
     header: "Actions",
     accessor: "id",
-    render: (id: string) => (
+    render: (value: string) => (
       <div className="flex gap-2">
         <Link
-          href={`/dashboard/users/${id}`}
+          href={`/dashboard/users/${value}`}
           className="text-purple-600 hover:underline"
         >
           View
