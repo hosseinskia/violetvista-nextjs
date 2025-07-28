@@ -31,8 +31,6 @@ export default function LoginPage() {
               type="email"
               className="w-full px-4 py-2 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="you@example.com"
-              required
-              aria-required="true"
             />
           </div>
           <div>
@@ -47,8 +45,6 @@ export default function LoginPage() {
               type="password"
               className="w-full px-4 py-2 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="••••••••"
-              required
-              aria-required="true"
             />
           </div>
           <button

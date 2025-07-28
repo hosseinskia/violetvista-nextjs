@@ -18,16 +18,7 @@ VioletVista is a modern web application built with **Next.js 15**, **TypeScript*
 
 - **Home (`/app/page.tsx`)**  
   The primary entry point featuring a hero section, features overview, about section, and contact form. It guides users to explore the platform or sign up.
-
-- **Contact (`/app/contact/page.tsx`)**  
-  A dedicated page with a responsive form and email link (`contact@example.com`) for user inquiries.
-
-- **Privacy Policy (`/app/privacy/page.tsx`)**  
-  Outlines VioletVista's data collection, usage, and protection policies to ensure transparency and compliance.
-
-- **Terms and Conditions (`/app/terms/page.tsx`)**  
-  Details the rules and guidelines for using the platform, ensuring users understand their responsibilities.
-
+  
 - **Login (`/app/login/page.tsx`)**  
   A secure login page with a form for user credentials and a link to the signup page for new users.
 

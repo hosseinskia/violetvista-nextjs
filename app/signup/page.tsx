@@ -32,8 +32,6 @@ export default function RegisterPage() {
               type="text"
               className="w-full px-4 py-2 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="Your name"
-              required
-              aria-required="true"
             />
           </div>
           <div>
@@ -48,8 +46,6 @@ export default function RegisterPage() {
               type="email"
               className="w-full px-4 py-2 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="you@example.com"
-              required
-              aria-required="true"
             />
           </div>
           <div>
@@ -64,8 +60,6 @@ export default function RegisterPage() {
               type="password"
               className="w-full px-4 py-2 border rounded-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-purple-400"
               placeholder="••••••••"
-              required
-              aria-required="true"
             />
           </div>
           <button
