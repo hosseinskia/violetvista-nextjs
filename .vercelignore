@@ -40,3 +40,7 @@ next-env.d.ts
 saver.py
 /archive
 .vercel
+LICENSE
+README.md
+.gitattributes
+
